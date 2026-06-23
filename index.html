@@ -53,6 +53,269 @@
             height: 3px;
             border-radius: 2px;
         }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+        <div class="container">
+            
+            <a class="navbar-brand d-flex align-items-center fw-bold text-dark fs-4 m-0" href="#">
+                <svg class="me-2 text-primary" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                </svg>
+                Fly High <span class="text-primary ms-1">Local</span>
+            </a>
+            
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-2 gap-lg-3 mt-3 mt-lg-0 p-0">
+                    <li class="nav-item"><a class="nav-link text-secondary hover-link px-2 small fw-semibold text-nowrap" href="#services">What We Do?</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary hover-link px-2 small fw-semibold text-nowrap" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary hover-link px-2 small fw-semibold text-nowrap" href="#samples">Samples</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary hover-link px-2 small fw-semibold text-nowrap" href="#team">Our Team</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary hover-link px-2 small fw-semibold text-nowrap" href="#donations">Donations</a></li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a class="btn btn-primary text-white rounded-pill px-3 py-2 small fw-bold shadow-sm text-nowrap d-inline-block" href="#connect">Connect With Us</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <header class="hero-section text-center text-white px-3">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-3">Making Local Businesses Fly</h1>
+            <p class="lead fs-4 mb-4 mx-auto" style="max-width: 700px;">Professional websites, apps, and digital growth tailored elegantly for your local neighborhood brands.</p>
+            <a href="#services" class="btn btn-light btn-lg fw-bold text-primary px-4 py-3 shadow-sm">Explore Our Services</a>
+        </div>
+    </header>
+
+    <section id="services" class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">What We Do?</h2>
+                <div class="mx-auto bg-primary section-divider"></div>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center border-0 shadow-sm p-4 hover-card">
+                        <div class="text-primary mb-3"><i class="bi bi-laptop fs-1"></i></div>
+                        <h4 class="fw-bold h5">Build Websites</h4>
+                        <p class="text-muted small mb-0">Stunning, fast, responsive web setups built to turn visitors into buyers.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center border-0 shadow-sm p-4 hover-card">
+                        <div class="text-primary mb-3"><i class="bi bi-phone fs-1"></i></div>
+                        <h4 class="fw-bold h5">Build Apps</h4>
+                        <p class="text-muted small mb-0">Custom mobile applications to keep your community engaged on the go.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center border-0 shadow-sm p-4 hover-card">
+                        <div class="text-primary mb-3"><i class="bi bi-megaphone fs-1"></i></div>
+                        <h4 class="fw-bold h5">Run Ads</h4>
+                        <p class="text-muted small mb-0">Targeted advertising campaigns that explicitly hit your local radius audience.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center border-0 shadow-sm p-4 hover-card">
+                        <div class="text-primary mb-3"><i class="bi bi-cart-check fs-1"></i></div>
+                        <h4 class="fw-bold h5">Online Order System</h4>
+                        <p class="text-muted small mb-0">Flawless configurations for seamless menu/inventory handling and checkouts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-5">
+        <div class="container py-4">
+            
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">Pricing Plans</h2>
+                <div class="mx-auto bg-primary section-divider mb-4"></div>
+                
+                <div class="d-inline-flex p-1 bg-light rounded-pill border shadow-sm" role="tablist">
+                    <button class="btn btn-primary rounded-pill px-4 py-2 small fw-bold active" 
+                            id="dot-in-tab" data-bs-toggle="tab" data-bs-target="#pane-in" type="button" role="tab" aria-selected="true">
+                        .in Domain
+                    </button>
+                    <button class="btn btn-light rounded-pill px-4 py-2 small fw-bold text-secondary" 
+                            id="dot-com-tab" data-bs-toggle="tab" data-bs-target="#pane-com" type="button" role="tab" aria-selected="false">
+                        .com Domain
+                    </button>
+                    <button class="btn btn-light rounded-pill px-4 py-2 small fw-bold text-secondary" 
+                            id="all-domains-tab" data-bs-toggle="tab" data-bs-target="#pane-all" type="button" role="tab" aria-selected="false">
+                        Complete Bundle (All Domains)
+                    </button>
+                </div>
+            </div>
+
+            <div class="tab-content mb-5" id="pricingTabContent">
+                
+                <div class="tab-pane fade show active" id="pane-in" role="tabpanel" aria-labelledby="dot-in-tab">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-md-4">
+                            <div class="card h-100 text-center border shadow-sm hover-card">
+                                <div class="card-body p-4 d-flex flex-column">
+                                    <h4 class="fw-bold">INR 1499/yr</h4>
+                                    <p class="text-muted">Basic Web Setup</p>
+                                    <hr>
+                                    <ul class="list-unstyled text-start mb-4 flex-grow-1">
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free .in Domain Name</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free SSL Certificate & Hosting</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Basic Website</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free Google Maps Integration</li>
+                                    </ul>
+                                    <a href="#connect" class="btn btn-outline-primary w-100 mt-auto">Choose Plan</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 text-center border shadow-sm hover-card">
+                                <div class="card-body p-4 d-flex flex-column">
+                                    <h4 class="fw-bold">INR 2499/yr</h4>
+                                    <p class="text-muted">Premium Websites</p>
+                                    <hr>
+                                    <ul class="list-unstyled text-start mb-4 flex-grow-1">
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free .in Domain Name</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free SSL Certificate & Hosting</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Basic Website</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free Google Maps Integration</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Online Order System</li>
+                                    </ul>
+                                    <a href="#connect" class="btn btn-outline-primary w-100 mt-auto">Choose Plan</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 text-center border shadow-sm hover-card">
+                                <div class="card-body p-4 d-flex flex-column">
+                                    <h4 class="fw-bold">INR 3499/yr</h4>
+                                    <p class="text-muted">Premium Website & App Integration</p>
+                                    <hr>
+                                    <ul class="list-unstyled text-start mb-4 flex-grow-1">
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free .in Domain Name</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free SSL Certificate & Hosting</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Basic Website</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free Google Maps Integration</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Online Order System</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Android Application on Play Store</li>
+                                    </ul>
+                                    <a href="#connect" class="btn btn-outline-primary w-100 mt-auto">Choose Plan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="pane-com" role="tabpanel" aria-labelledby="dot-com-tab">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-md-4">
+                            <div class="card h-100 text-center border shadow-sm hover-card">
+                                <div class="card-body p-4 d-flex flex-column">
+                                    <h4 class="fw-bold">INR 2499/yr</h4>
+                                    <p class="text-muted">Basic Web Setup</p>
+                                    <hr>
+                                    <ul class="list-unstyled text-start mb-4 flex-grow-1">
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free .com Domain Name</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free SSL Certificate & Hosting</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Basic Website</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free Google Maps Integration</li>
+                                    </ul>
+                                    <a href="#connect" class="btn btn-outline-primary w-100 mt-auto">Choose Plan</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 text-center border shadow-sm hover-card">
+                                <div class="card-body p-4 d-flex flex-column">
+                                    <h4 class="fw-bold">INR 3499/yr</h4>
+                                    <p class="text-muted">Premium Websites</p>
+                                    <hr>
+                                    <ul class="list-unstyled text-start mb-4 flex-grow-1">
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free .com Domain Name</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free SSL Certificate & Hosting</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Basic Website</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free Google Maps Integration</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Online Order System</li>
+                                    </ul>
+                                    <a href="#connect" class="btn btn-outline-primary w-100 mt-auto">Choose Plan</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 text-center border shadow-sm hover-card">
+                                <div class="card-body p-4 d-flex flex-column">
+                                    <h4 class="fw-bold">INR 3999/yr</h4>
+                                    <p class="text-muted">Premium Website & App Integration</p>
+                                    <hr>
+                                    <ul class="list-unstyled text-start mb-4 flex-grow-1">
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free .com Domain Name</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free SSL Certificate & Hosting</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Basic Website</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free Google Maps Integration</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Online Order System</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Android Application on Play Store</li>
+                                    </ul>
+                                    <a href="#connect" class="btn btn-outline-primary w-100 mt-auto">Choose Plan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="pane-all" role="tabpanel" aria-labelledby="all-domains-tab">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 text-center border shadow-sm hover-card">
+                                <div class="card-body p-4 d-flex flex-column">
+                                    <h4 class="fw-bold">INR 19999/yr</h4>
+                                    <p class="text-muted">Basic Web Setup</p>
+                                    <hr>
+                                    <ul class="list-unstyled text-start mb-4 flex-grow-1">
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free All Domain Names</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free SSL Certificate & Hosting</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Basic Website</li>
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free Google Maps Integration</li>
+                                    </ul>
+                                    <a href="#connect" class="btn btn-outline-primary w-100 mt-auto">Choose Plan</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 text-center border shadow-sm hover-card">
+                                <div class="card-body p-4 d-flex flex-column">
+                                    <h4 class="fw-bold">INR 21999/yr</h4>
+                                    <p class="text-muted">Premium Websites</p>
+                                    <hr>
+                                    <ul class="list-unstyled text-start mb-4 flex-grow-1">
+                                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Free All Domain Names</li>
+           .hover-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: #0d6efd;
+            transition: all var(--transition-speed) ease;
+            transform: translateX(-50%);
+        }
+        .hover-link:hover::after {
+            width: 80%;
+        }
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            border-radius: 2px;
+        }
         /* Portfolio card overlays */
         .portfolio-item {
             position: relative;
