@@ -3,410 +3,473 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Interactive Showcase - Fly High Local</title>
+    <title>Enterprise Brand Engine - Fly High Local</title>
+    
+    <!-- BRAND ASSET INJECTION (<HEAD> IDENTITY) -->
+    <link rel="icon" type="image/jpeg" href="Logo.jpg">
+    
+    <!-- Bootstrap 5 Core Framework & Structural Vector Elements -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Deep Typography Suite Injection for Complete Archetype Testing -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;600;800&family=Press+Start+2P&family=Cinzel:wght@600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
     <style>
+        /* ==========================================================================
+           12-THEME CASCADE SYSTEM MATRIX (Tokens rewrite instantly on data-theme switch)
+           ========================================================================== */
+        
+        /* THEME 1: FRESH ORGANIC MARKET (DEFAULT) */
         :root {
-            --surface-bg: #f8fafc;
-            --border-color: #e2e8f0;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --accent-blue: #2563eb;
-            --accent-green: #16a34a;
+            --bg-main: #fafdfb; --bg-card: #ffffff; --text-heading: #111827; --text-body: #4b5563;
+            --primary: #198754; --primary-muted: #e8f5e9; --border-radius: 24px;
+            --font-family: 'Plus Jakarta Sans', sans-serif; --font-weight-heading: 800;
+            --shadow-depth: 0 12px 35px rgba(25, 135, 84, 0.05); --border-style: 1px solid #e2e8f0;
+        }
+
+        /* THEME 2: MIDNIGHT LUXURY FASHION */
+        [data-theme="luxury"] {
+            --bg-main: #0a0a0a; --bg-card: #121212; --text-heading: #ffffff; --text-body: #a3a3a3;
+            --primary: #bc9c65; --primary-muted: #26221a; --border-radius: 0px;
+            --font-family: 'Playfair Display', serif; --font-weight-heading: 600;
+            --shadow-depth: none; --border-style: 1px solid #262626;
+        }
+
+        /* THEME 3: CYBER VIOLET TECH */
+        [data-theme="tech"] {
+            --bg-main: #060214; --bg-card: #0f0926; --text-heading: #ffffff; --text-body: #94a3b8;
+            --primary: #7c3aed; --primary-muted: #1e113a; --border-radius: 12px;
+            --font-family: 'Plus Jakarta Sans', sans-serif; --font-weight-heading: 800;
+            --shadow-depth: 0 15px 35px rgba(124, 58, 237, 0.15); --border-style: 1px solid #241947;
+        }
+
+        /* THEME 4: RETRO ARCADE VAPORWAVE */
+        [data-theme="retro"] {
+            --bg-main: #2b0938; --bg-card: #3d134d; --text-heading: #00ffff; --text-body: #ff00ff;
+            --primary: #ff00ff; --primary-muted: #1a0022; --border-radius: 4px;
+            --font-family: 'Press Start 2P', monospace; --font-weight-heading: 400;
+            --shadow-depth: 4px 4px 0px #00ffff; --border-style: 3px solid #00ffff;
+        }
+
+        /* THEME 5: NORDIC MINIMALIST */
+        [data-theme="nordic"] {
+            --bg-main: #f4f4f0; --bg-card: #ffffff; --text-heading: #2d3732; --text-body: #616e66;
+            --primary: #4a5d4e; --primary-muted: #e6ece8; --border-radius: 16px;
+            --font-family: 'Plus Jakarta Sans', sans-serif; --font-weight-heading: 600;
+            --shadow-depth: 0 4px 20px rgba(0,0,0,0.02); --border-style: 1px solid #d8deda;
+        }
+
+        /* THEME 6: SOLAR CRIMSON */
+        [data-theme="solar"] {
+            --bg-main: #fffcf9; --bg-card: #ffffff; --text-heading: #7c1a00; --text-body: #5c3d35;
+            --primary: #ea580c; --primary-muted: #ffedd5; --border-radius: 40px;
+            --font-family: 'Space Grotesk', sans-serif; --font-weight-heading: 700;
+            --shadow-depth: 0 10px 30px rgba(234, 88, 12, 0.08); --border-style: 1px solid #fed7aa;
+        }
+
+        /* THEME 7: OCEANIC DEEP SLATE */
+        [data-theme="oceanic"] {
+            --bg-main: #0f172a; --bg-card: #1e293b; --text-heading: #f8fafc; --text-body: #94a3b8;
+            --primary: #38bdf8; --primary-muted: #0c4a6e; --border-radius: 8px;
+            --font-family: 'Plus Jakarta Sans', sans-serif; --font-weight-heading: 700;
+            --shadow-depth: 0 8px 24px rgba(0,0,0,0.2); --border-style: 1px solid #334155;
+        }
+
+        /* THEME 8: ROYAL GOLD & AMETHYST */
+        [data-theme="royal"] {
+            --bg-main: #1e112a; --bg-card: #291a37; --text-heading: #f3e8ff; --text-body: #c084fc;
+            --primary: #e9c46a; --primary-muted: #3b2354; --border-radius: 0px;
+            --font-family: 'Cinzel', serif; --font-weight-heading: 600;
+            --shadow-depth: 0 10px 40px rgba(233, 196, 106, 0.05); --border-style: 1px solid #4a3461;
+        }
+
+        /* THEME 9: CHALKBOARD EDITORIAL */
+        [data-theme="editorial"] {
+            --bg-main: #fbfbf9; --bg-card: #ffffff; --text-heading: #000000; --text-body: #262626;
+            --primary: #000000; --primary-muted: #f1f1ee; --border-radius: 0px;
+            --font-family: 'Playfair Display', serif; --font-weight-heading: 600;
+            --shadow-depth: none; --border-style: 1px solid #000000;
+        }
+
+        /* THEME 10: BUBBLEGUM POP */
+        [data-theme="bubblegum"] {
+            --bg-main: #fff0f6; --bg-card: #ffffff; --text-heading: #d946ef; --text-body: #4a044e;
+            --primary: #06b6d4; --primary-muted: #ecfeff; --border-radius: 50px;
+            --font-family: 'Space Grotesk', sans-serif; --font-weight-heading: 700;
+            --shadow-depth: 0 15px 30px rgba(217, 70, 239, 0.1); --border-style: 2px dashed #f472b6;
+        }
+
+        /* THEME 11: BRUTALIST SWISS */
+        [data-theme="brutalist"] {
+            --bg-main: #ffffff; --bg-card: #ffffff; --text-heading: #000000; --text-body: #000000;
+            --primary: #ff3e3e; --primary-muted: #ffffff; --border-radius: 0px;
+            --font-family: 'Syne', sans-serif; --font-weight-heading: 800;
+            --shadow-depth: 8px 8px 0px #000000; --border-style: 4px solid #000000;
+        }
+
+        /* THEME 12: INDUSTRIAL COPPER */
+        [data-theme="industrial"] {
+            --bg-main: #1c1917; --bg-card: #262220; --text-heading: #fafaf9; --text-body: #a8a29e;
+            --primary: #ea580c; --primary-muted: #443e3a; --border-radius: 6px;
+            --font-family: 'Space Grotesk', sans-serif; --font-weight-heading: 700;
+            --shadow-depth: 0 10px 25px rgba(0,0,0,0.3); --border-style: 1px solid #443e3a;
+        }
+
+        /* ==========================================================================
+           GLOBAL STRUCTURAL STYLING RULES
+           ========================================================================= */
+        * {
+            transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, border-radius 0.4s ease, box-shadow 0.4s ease;
         }
         body {
-            background-color: var(--surface-bg);
-            font-family: system-ui, -apple-system, sans-serif;
-            color: var(--text-main);
+            background-color: var(--bg-main);
+            color: var(--text-body);
+            font-family: var(--font-family);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-        /* Top Navigation Header Styling */
-        .glass-nav {
+        h1, h2, h3, h4, .brand-font {
+            font-family: var(--font-family);
+            font-weight: var(--font-weight-heading);
+            color: var(--text-heading);
+            letter-spacing: -0.03em;
+        }
+        
+        /* Persistent Floating Sidebar Panel Setup */
+        .sidebar-control-dock {
+            position: fixed;
+            top: 0; right: 0;
+            width: 320px; height: 100vh;
             background: #ffffff;
-            border-bottom: 1px solid var(--border-color);
-        }
-        /* Mode Selectors */
-        .mode-pill {
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-            border: 1px solid var(--border-color);
-            background: #ffffff;
-        }
-        .mode-pill:hover {
-            background: #f1f5f9;
-            transform: translateY(-1px);
-        }
-        .mode-pill.active[data-target="basic"] {
-            border-color: var(--accent-blue);
-            background-color: #f0f7ff;
-        }
-        .mode-pill.active[data-target="payment"] {
-            border-color: var(--accent-green);
-            background-color: #f0fdf4;
-        }
-        /* Desktop Browser Mockup Frame */
-        .browser-window {
-            border-radius: 12px;
-            overflow: hidden;
-            background: #ffffff;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border-color);
-        }
-        .browser-chrome {
-            background: #f1f5f9;
-            border-bottom: 1px solid #cbd5e1;
-            padding: 10px 16px;
-        }
-        .window-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 4px;
-        }
-        .address-bar {
-            background: #ffffff;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            padding: 3px 12px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-family: monospace;
-            max-width: 460px;
-            width: 100%;
-        }
-        /* Native Mobile Phone Simulator Frame */
-        .phone-frame {
-            width: 100%;
-            max-width: 340px;
-            height: 600px;
-            background: #ffffff;
-            border: 12px solid #0f172a;
-            border-radius: 40px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
-        }
-        .phone-screen {
-            width: 100%;
-            height: 100%;
-            background: #ffffff;
-            color: var(--text-main);
+            border-left: 1px solid #e2e8f0;
+            box-shadow: -10px 0 40px rgba(0,0,0,0.05);
+            z-index: 1050;
+            padding: 24px;
             overflow-y: auto;
         }
-        .phone-screen::-webkit-scrollbar {
-            display: none;
+        .theme-select-row {
+            display: flex; align-items: center; gap: 12px;
+            width: 100%; padding: 10px 14px; margin-bottom: 8px;
+            background: #f8fafc; border: 1px solid #e2e8f0;
+            border-radius: 10px; cursor: pointer; text-align: left;
+            transition: all 0.2s ease; font-size: 0.85rem; font-weight: 600;
+            color: #334155;
         }
-        /* Product Card Interactive Overrides */
-        .interactive-item {
-            transition: all 0.2s ease;
+        .theme-select-row:hover { background: #f1f5f9; transform: translateX(-4px); }
+        .theme-select-row.active {
+            background: #0f172a; color: #ffffff; border-color: #0f172a;
         }
-        .interactive-item:hover {
-            border-color: #cbd5e1 !important;
-            background-color: #f8fafc !important;
+
+        /* Core Elements Linked to Custom CSS Variables */
+        .custom-navbar {
+            border-bottom: var(--border-style); background-color: var(--bg-card);
+        }
+        .custom-card {
+            background-color: var(--bg-card); border: var(--border-style);
+            border-radius: var(--border-radius); box-shadow: var(--shadow-depth);
+            padding: 32px; height: 100%;
+        }
+        .custom-btn {
+            background-color: var(--primary); color: #ffffff !important;
+            font-weight: 700; padding: 14px 32px; border-radius: var(--border-radius);
+            border: none; display: inline-block; text-decoration: none;
+            box-shadow: var(--shadow-depth); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em;
+        }
+        .icon-indicator-box {
+            width: 56px; height: 56px; border-radius: var(--border-radius);
+            background-color: var(--primary-muted); color: var(--primary);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.6rem; margin-bottom: 24px;
+        }
+        .badge-accent-pill {
+            background-color: var(--primary-muted); color: var(--primary);
+            font-weight: 700; padding: 8px 20px; border-radius: var(--border-radius);
+            display: inline-block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        
+        /* Themed Corporate Footer Rules */
+        .themed-footer {
+            margin-top: auto;
+            background-color: var(--bg-card);
+            border-top: var(--border-style);
+            color: var(--text-body);
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive spacing offset for floating matrix panel */
+        @media (min-width: 1200px) {
+            .workspace-wrap { padding-right: 340px; }
         }
     </style>
 </head>
-<body class="pb-5">
+<body>
 
-    <nav class="navbar glass-nav sticky-top py-3 mb-4">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a href="index.html" class="btn btn-sm btn-outline-secondary rounded-pill px-3">
-                <i class="bi bi-arrow-left small me-1"></i> Return Home
-            </a>
-            <span class="fw-bold text-dark small"><i class="bi bi-layers-half me-2 text-primary"></i>Cross-Platform Mockup Matrix</span>
+    <!-- FLOATING SIDEBAR PANEL MATRIX (CONTROL ACCESS PANEL) -->
+    <div class="sidebar-control-dock">
+        <div class="d-flex align-items-center gap-2 mb-2 pb-3 border-bottom">
+            <!-- FlyHighLocal Brand Logo Asset Configuration -->
+            <img src="Logo.jpg" alt="FlyHighLocal Logo" style="height:24px; width:auto; object-fit:contain; border-radius:4px;">
+            <span class="fw-bold text-dark small">FlyHighLocal Engine</span>
         </div>
-    </nav>
+        <p class="text-muted mb-4" style="font-size: 0.72rem; line-height: 1.4;">
+            Select from the 12 standalone configurations below to instantly re-render the typography scales, border metrics, depths, and styling values.
+        </p>
 
-    <div class="container">
-        <div class="text-center mb-4">
-            <h2 class="fw-bold text-dark">Live Solution Demonstrator</h2>
-            <p class="text-muted mx-auto mb-4" style="max-width: 600px; font-size: 0.95rem;">
-                Toggle setups below to instantly transform both the desktop web platform and native smartphone app interface simultaneously.
-            </p>
-
-            <div class="row g-3 justify-content-center">
-                <div class="col-md-4 col-sm-6">
-                    <div class="card p-3 mode-pill active text-start" data-target="basic" onclick="executePipelineSwitch('basic')">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h6 class="fw-bold mb-0 text-dark small">1. Basic Web & App</h6>
-                                <span class="text-muted small" style="font-size:0.75rem;">Informative Brochure Suite</span>
-                            </div>
-                            <span class="badge bg-primary rounded-pill">Active</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="card p-3 mode-pill text-start" data-target="payment" onclick="executePipelineSwitch('payment')">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h6 class="fw-bold mb-0 text-dark small">2. Basic + Gateway Suite</h6>
-                                <span class="text-muted small" style="font-size:0.75rem;">Interactive E-Commerce Build</span>
-                            </div>
-                            <span class="badge bg-success rounded-pill">Ready</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row g-4 justify-content-center align-items-start mt-2">
-            
-            <div class="col-xl-7 col-lg-6">
-                <div class="mb-2 px-1 d-flex justify-content-between align-items-center">
-                    <span class="small text-uppercase fw-bold text-muted tracking-wider"><i class="bi bi-laptop me-2"></i>Desktop Browser Workspace</span>
-                    <span class="badge bg-white text-secondary border small" id="web-badge">Standard Framework</span>
-                </div>
-                <div class="browser-window">
-                    <div class="browser-chrome d-flex align-items-center">
-                        <span class="window-dot" style="background:#ef4444"></span>
-                        <span class="window-dot" style="background:#f59e0b"></span>
-                        <span class="window-dot" style="background:#10b981"></span>
-                        <div class="address-bar ms-3" id="web-address-url">https://www.thegroceryhub.in</div>
-                    </div>
-                    <div id="web-canvas-viewport" class="bg-white p-0" style="min-height: 520px;">
-                        </div>
-                </div>
-            </div>
-
-            <div class="col-xl-5 col-lg-6 d-flex flex-column align-items-center">
-                <div class="w-100 mb-2 px-1 text-start">
-                    <span class="small text-uppercase fw-bold text-muted tracking-wider"><i class="bi bi-phone me-2"></i>Native Mobile App Layout</span>
-                </div>
-                <div class="phone-frame">
-                    <div class="phone-screen" id="app-canvas-viewport">
-                        </div>
-                </div>
-            </div>
-
-        </div>
+        <!-- Dynamic Select Trigger Matrix Buttons -->
+        <button class="theme-select-row active" id="t-organic" onclick="runMorphEngine('organic')">
+            <i class="bi bi-flower1 text-success fs-5"></i> 01. Fresh Organic Market
+        </button>
+        <button class="theme-select-row" id="t-luxury" onclick="runMorphEngine('luxury')">
+            <i class="bi bi-gem text-warning fs-5"></i> 02. Midnight Luxury Fashion
+        </button>
+        <button class="theme-select-row" id="t-tech" onclick="runMorphEngine('tech')">
+            <i class="bi bi-cpu text-primary fs-5"></i> 03. Cyber Violet Tech
+        </button>
+        <button class="theme-select-row" id="t-retro" onclick="runMorphEngine('retro')">
+            <i class="bi bi-controller text-danger fs-5"></i> 04. Retro Arcade Pop
+        </button>
+        <button class="theme-select-row" id="t-nordic" onclick="runMorphEngine('nordic')">
+            <i class="bi bi-tree text-secondary fs-5"></i> 05. Nordic Clean Sage
+        </button>
+        <button class="theme-select-row" id="t-solar" onclick="runMorphEngine('solar')">
+            <i class="bi bi-sun text-warning fs-5"></i> 06. Solar Heat Crimson
+        </button>
+        <button class="theme-select-row" id="t-oceanic" onclick="runMorphEngine('oceanic')">
+            <i class="bi bi-tsunami text-info fs-5"></i> 07. Oceanic Deep Slate
+        </button>
+        <button class="theme-select-row" id="t-royal" onclick="runMorphEngine('royal')">
+            <i class="bi bi-crown text-warning fs-5"></i> 08. Royal Amethyst Gold
+        </button>
+        <button class="theme-select-row" id="t-editorial" onclick="runMorphEngine('editorial')">
+            <i class="bi bi-journal-text text-dark fs-5"></i> 09. Monochrome Editorial
+        </button>
+        <button class="theme-select-row" id="t-bubblegum" onclick="runMorphEngine('bubblegum')">
+            <i class="bi bi-candy-rose text-danger fs-5"></i> 10. Bubblegum Gen-Z
+        </button>
+        <button class="theme-select-row" id="t-brutalist" onclick="runMorphEngine('brutalist')">
+            <i class="bi bi-boxes text-dark fs-5"></i> 11. Swiss Bold Brutalist
+        </button>
+        <button class="theme-select-row" id="t-industrial" onclick="runMorphEngine('industrial')">
+            <i class="bi bi-nut text-secondary fs-5"></i> 12. Industrial Copper
+        </button>
     </div>
 
-    <script>
-        let orderPayload = { apples: 0, oranges: 0 };
-        const priceMap = { apples: 180, oranges: 140 };
+    <!-- MAIN INTERACTIVE DEMO SITE SPACE CONTAINER -->
+    <div class="workspace-wrap d-flex flex-column min-vh-100">
+        
+        <!-- SITE CORE HEADER -->
+        <nav class="navbar custom-navbar sticky-top py-3">
+            <div class="container-fluid px-md-5 d-flex justify-content-between align-items-center">
+                <span class="fs-4 fw-bold brand-font" id="site-logo">
+                    <i class="bi bi-basket3-fill me-2"></i>The Grocery Hub
+                </span>
+                <div class="d-flex align-items-center gap-4">
+                    <span class="small d-none d-lg-inline text-muted fw-bold" id="site-navitem">Fresh Provisions Marketplace</span>
+                    <a href="#" class="custom-btn py-2 px-4" style="font-size: 0.75rem;">Launch Console</a>
+                </div>
+            </div>
+        </nav>
 
-        const webTemplates = {
-            basic: `
-                <div class="navbar navbar-light bg-light border-bottom px-3 py-2 d-flex justify-content-between">
-                    <span class="navbar-brand fw-bold text-dark fs-6"><i class="bi bi-basket3-fill text-success me-2"></i>The Grocery Hub</span>
-                    <div class="small text-muted"><i class="bi bi-telephone-outbound me-1"></i> Support: +91 98765 43210</div>
-                </div>
-                <div class="p-4 bg-light border-bottom text-center">
-                    <h4 class="fw-bold mb-1">Fresh Farm Produce Straight to Your Kitchen</h4>
-                    <p class="text-muted small mb-0">High performance neighborhood brochure pages designed to drive offline store footfall.</p>
-                </div>
-                <div class="p-3">
-                    <h6 class="fw-bold text-uppercase text-secondary tracking-wider small mb-3">Available Catalog Menu</h6>
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="p-3 border rounded bg-white">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <div><h6 class="fw-bold mb-0 text-dark small">Fresh Shimla Apples</h6><small class="text-muted">Rich in Iron (1 Kg)</small></div>
-                                    <span class="text-success fw-bold small">₹180</span>
-                                </div>
-                                <button class="btn btn-sm btn-outline-secondary w-100 disabled" style="font-size:11px;">View Inventory Only</button>
-                            </div>
+        <!-- SITE HERO VIEWPORT LAYER -->
+        <section class="py-5 my-md-4">
+            <div class="container-fluid px-md-5">
+                <div class="row align-items-center g-5">
+                    <div class="col-xl-6 col-lg-7">
+                        <span class="badge-accent-pill mb-3" id="site-badge">🌿 100% Certified Organic Matrix</span>
+                        <h1 class="display-3 mb-4" id="site-title">
+                            Fresh Farm Greens <br>Delivered Daily.
+                        </h1>
+                        <p class="lead mb-5" id="site-desc" style="max-width:540px; font-size: 1.05rem; line-height: 1.6;">
+                            Skip the supermarket lines. Get premium organic items harvested this morning delivered right to your doorstep within 30 minutes flat.
+                        </p>
+                        <div class="d-flex align-items-center gap-3">
+                            <a href="#" class="custom-btn" id="site-cta">Initiate Processing</a>
+                            <a href="#" class="btn border-0 fw-bold small d-flex align-items-center gap-2" style="color: var(--text-heading);">
+                                Review Analytics <i class="bi bi-arrow-right-short fs-5"></i>
+                            </a>
                         </div>
-                        <div class="col-md-6">
-                            <div class="p-3 border rounded bg-white">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <div><h6 class="fw-bold mb-0 text-dark small">Nagpur Sweet Oranges</h6><small class="text-muted">Juicy Citrus (1 Kg)</small></div>
-                                    <span class="text-success fw-bold small">₹140</span>
+                    </div>
+                    <div class="col-xl-6 col-lg-5">
+                        <div class="row g-4">
+                            <div class="col-sm-6 col-md-12 col-xl-6">
+                                <div class="custom-card">
+                                    <div class="icon-indicator-box" id="site-icon1"><i class="bi bi-truck"></i></div>
+                                    <h4 class="fs-5 mb-2">Instant Dispatch</h4>
+                                    <p class="small text-muted mb-0">Routed directly through native micro-fulfillment stations.</p>
                                 </div>
-                                <button class="btn btn-sm btn-outline-secondary w-100 disabled" style="font-size:11px;">View Inventory Only</button>
+                            </div>
+                            <div class="col-sm-6 col-md-12 col-xl-6">
+                                <div class="custom-card">
+                                    <div class="icon-indicator-box" id="site-icon2"><i class="bi bi-shield-check"></i></div>
+                                    <h4 class="fs-5 mb-2">Validated Quality</h4>
+                                    <p class="small text-muted mb-0">Rigorous safety standards clearance algorithms across runs.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="mt-4 p-3 bg-light border rounded d-flex justify-content-between align-items-center">
-                        <div class="small"><i class="bi bi-geo-alt-fill text-danger me-2"></i>Shop No. 12, Local Market Complex, Sector 5, Gurugram</div>
-                        <button class="btn btn-primary btn-sm rounded-pill px-4 fw-bold shadow-xs" onclick="alert('Simulation: Fires native phone call instantly!')">Call Store Now</button>
-                    </div>
                 </div>
-            `,
-            payment: `
-                <div class="navbar navbar-light bg-light border-bottom px-3 py-2 d-flex justify-content-between">
-                    <span class="navbar-brand fw-bold text-dark fs-6"><i class="bi bi-basket3-fill text-success me-2"></i>The Grocery Hub</span>
-                    <span class="badge bg-success-subtle text-success border border-success px-2 py-1" style="font-size:10px;"><i class="bi bi-shield-check-fill me-1"></i> Payment Terminal Synchronized</span>
-                </div>
-                <div class="row g-0">
-                    <div class="col-md-7 border-end" style="min-height:435px;">
+            </div>
+        </section>
+
+        <!-- INFRASTRUCTURE DETAILS GRID -->
+        <section class="py-5 border-top" style="background-color: var(--bg-card); border-color: var(--border-style);">
+            <div class="container-fluid px-md-5 py-4">
+                <div class="row g-4">
+                    <div class="col-md-4">
                         <div class="p-3">
-                            <h6 class="fw-bold text-uppercase text-secondary small mb-3">Live Interactive Marketplace</h6>
-                            
-                            <div class="card p-3 mb-2 border interactive-item shadow-none" style="cursor:pointer;" onclick="registerItemToEngine('apples')">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <h6 class="fw-bold text-dark mb-0 small">Fresh Shimla Apples</h6>
-                                        <small class="text-muted">Premium Harvest (1 Kg)</small>
-                                    </div>
-                                    <div class="text-end">
-                                        <span class="fw-bold text-dark small d-block">₹180</span>
-                                        <span class="text-primary small fw-semibold" style="font-size:11px;">+ Add to Order</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card p-3 mb-2 border interactive-item shadow-none" style="cursor:pointer;" onclick="registerItemToEngine('oranges')">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <h6 class="fw-bold text-dark mb-0 small">Nagpur Sweet Oranges</h6>
-                                        <small class="text-muted">Juicy Citrus (1 Kg)</small>
-                                    </div>
-                                    <div class="text-end">
-                                        <span class="fw-bold text-dark small d-block">₹140</span>
-                                        <span class="text-primary small fw-semibold" style="font-size:11px;">+ Add to Order</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <h3 class="h4 mb-3" id="feat-h1">01 / Hyper-Local Sourcing</h3>
+                            <p class="text-muted small mb-0">Drastically reducing long-haul carbon supply pipelines to ensure maximum baseline product shelf life retention loops.</p>
                         </div>
                     </div>
-                    <div class="col-md-5 bg-light-subtle">
-                        <div class="p-3 h-100 d-flex flex-column justify-content-between">
-                            <div>
-                                <h6 class="fw-bold text-dark border-bottom pb-2 mb-3 small"><i class="bi bi-cart3 me-2"></i>Live Order Summary</h6>
-                                <div id="web-cart-breakdown" class="text-muted small py-4 text-center">Your shopping bag is completely empty.</div>
-                            </div>
-                            <div id="web-cart-footer" class="d-none border-top pt-3">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <span class="small fw-bold">Aggregate Sum Due:</span>
-                                    <span class="fw-black text-success fs-5" id="web-total-price">₹0</span>
-                                </div>
-                                <button class="btn btn-success w-100 btn-sm rounded py-2 fw-bold" onclick="executeSimulatedCheckout()">Process Instant Checkout</button>
-                            </div>
+                    <div class="col-md-4">
+                        <div class="p-3">
+                            <h3 class="h4 mb-3" id="feat-h2">02 / Thermal Tracking</h3>
+                            <p class="text-muted small mb-0">Smart active cooling storage boxes preserve chemical freshness vectors through complete multi-tier shipping procedures.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3">
+                            <h3 class="h4 mb-3" id="feat-h3">03 / Biodegradable Packs</h3>
+                            <p class="text-muted small mb-0">Completely zero-plastic custom composite execution wrappers protect the natural environment safely.</p>
                         </div>
                     </div>
                 </div>
-            `
+            </div>
+        </section>
+
+        <!-- OFFICIAL CORPORATE COPYRIGHT FOOTER -->
+        <footer class="themed-footer">
+            <div class="container-fluid px-md-5">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="Logo.jpg" alt="FlyHighLocal" style="height:20px; width:auto; border-radius:2px;">
+                        <span class="fw-semibold brand-font" style="color: var(--text-heading);">FlyHighLocal Engine</span>
+                    </div>
+                    <div class="text-center text-md-end small">
+                        <span>&copy; 2026 FlyHighLocal. All rights reserved. Powered by Dynamic Tokens.</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- DATA COPY DICTIONARY SCHEMAS MATRIX -->
+    <script>
+        const copyDictionary = {
+            organic: {
+                logo: '<i class="bi bi-basket3-fill me-2"></i>The Grocery Hub', navItem: 'Fresh Provisions Marketplace',
+                badge: '🌿 100% Certified Organic Matrix', title: 'Fresh Farm Greens <br>Delivered Daily.',
+                desc: 'Skip the supermarket lines. Get premium organic items harvested this morning delivered right to your doorstep within 30 minutes flat.',
+                cta: 'Start Order', icon1: '<i class="bi bi-truck"></i>', icon2: '<i class="bi bi-shield-check"></i>',
+                fh1: '01 / Hyper-Local Sourcing', fh2: '02 / Thermal Tracking', fh3: '03 / Zero-Plastic Packs'
+            },
+            luxury: {
+                logo: '[ URBAN THREADS ]', navItem: 'Winter Couture Runway Drop',
+                badge: '✨ Premium Made-To-Order Run', title: 'Minimalist Balance.<br>Luxury Fabric Form.',
+                desc: 'Heavyweight premium loopback luxury pieces cut to exact technical specifications. Hand-numbered essentials engineered to endure seasonal generational shifts.',
+                cta: 'Enter Private Drop', icon1: '<i class="bi bi-scissors"></i>', icon2: '<i class="bi bi-gem"></i>',
+                fh1: '01 / Tailored Balance', fh2: '02 / Monochromatic Ethos', fh3: '03 / Handcrafted Iterations'
+            },
+            tech: {
+                logo: '<i class="bi bi-lightning-charge-fill text-warning me-1"></i>pixelperfect.', navItem: 'Core Engine Enterprise APIs',
+                badge: '⚡ Blazing Fast NextGen Stack Node', title: 'We Architect Hyper-Growth <br>Digital Infrastructure.',
+                desc: 'Next-generation low-latency development structures and high-performance layout pipelines optimized explicitly to scale consumer traffic streams.',
+                cta: 'Deploy Active Workspace', icon1: '<i class="bi bi-cpu-fill"></i>', icon2: '<i class="bi bi-terminal-fill"></i>',
+                fh1: '01 / Edge Compute Engine', fh2: '02 / Autonomous Systems', fh3: '03 / Zero Latency Nodes'
+            },
+            retro: {
+                logo: '🕹️ RETRO_ARCADE', navItem: 'INSERT_COIN_STAGE_01',
+                badge: '👾 STAGE 1 READY PLAYER ONE', title: '8-BIT VIBES.<br>NEON RETROFUTURE.',
+                desc: 'Reset the simulation. Classic high-fidelity arcade aesthetic packages compiled natively using vibrant synthwave structural visual systems.',
+                cta: 'START GAME', icon1: '<i class="bi bi-joystick"></i>', icon2: '<i class="bi bi-controller"></i>',
+                fh1: '01 / 60 FPS RENDERING', fh2: '02 / CHIPTUNE EMULATION', fh3: '03 / CHROME MATRIX DRIVERS'
+            },
+            nordic: {
+                logo: '🌿 NORDIC SAGE', navItem: 'Architectural Functional Design',
+                badge: '🪨 Minimalist Spatial Balance', title: 'Quiet Luxury. <br>Functional Spaces.',
+                desc: 'Sustainably crafted interiors and industrial hardware archetypes utilizing natural pigments, honest materials, and soft muted earth tones.',
+                cta: 'View Collection', icon1: '<i class="bi bi-compass"></i>', icon2: '<i class="bi bi-tree"></i>',
+                fh1: '01 / Honest Materials', fh2: '02 / Natural Pigments', fh3: '03 / Circular Craft'
+            },
+            solar: {
+                logo: '🔥 SOLAR FLARE', navItem: 'High-Impact Brand Velocity',
+                badge: '💥 High Velocity Growth Asset', title: 'Ignite Brand Presence.<br>Command Market Waves.',
+                desc: 'Bold typography, unapologetic color palettes, and intense energetic messaging designed to break through consumer fatigue instantly.',
+                cta: 'Claim Blueprint', icon1: '<i class="bi bi-fire"></i>', icon2: '<i class="bi bi-lightning"></i>',
+                fh1: '01 / Raw Conversion Scale', fh2: '02 / Explosive Funnels', fh3: '03 / Market Dominance'
+            },
+            oceanic: {
+                logo: '🌊 OCEANIC SLATE', navItem: 'Maritime Asset Logistics',
+                badge: '⚓ Deep Sea Capital Infrastructure', title: 'Global Maritime Trade.<br>Streamlined Supply Nodes.',
+                desc: 'Intercontinental enterprise container tracking networks and deep-sea freight monitoring applications configured for zero delivery drift parameters.',
+                cta: 'Track Cargo Nodes', icon1: '<i class="bi bi-tsunami"></i>', icon2: '<i class="bi bi-anchor"></i>',
+                fh1: '01 / Real-Time Marine Telemetry', fh2: '02 / Port Route Optimization', fh3: '03 / Heavy Cargo Security'
+            },
+            royal: {
+                logo: '⚜️ VELVET REIGN', navItem: 'Elite Haute Horology',
+                badge: '👑 Limited Imperial Masterpieces', title: 'Royal Inheritance.<br>Timeless Chronographs.',
+                desc: 'Impeccable gold complications and micro-engineered luxury timepieces created exclusively for family generation distributions.',
+                cta: 'Request Private Viewing', icon1: '<i class="bi bi-hourglass-split"></i>', icon2: '<i class="bi bi-crown"></i>',
+                fh1: '01 / Micro-Engineered Gears', fh2: '02 / Bespoke Precious Alloys', fh3: '03 / Hand-Assembled Calibers'
+            },
+            editorial: {
+                logo: '✒️ THE CHRONICLE', navItem: 'Independent Analytical Journalism',
+                badge: '🗞️ Issue No. 142 Longform Prints', title: 'Uncompromising Truths.<br>Deep Editorial Context.',
+                desc: 'High-contrast monochrome print layouts engineered to elevate global investigative prose, geopolitical analysis, and societal critique.',
+                cta: 'Subscribe To Daily Print', icon1: '<i class="bi bi-newspaper"></i>', icon2: '<i class="bi bi-pen"></i>',
+                fh1: '01 / Fact-Checked Journalism', fh2: '02 / Ad-Free Editorial Model', fh3: '03 / Archival Quality Paper'
+            },
+            bubblegum: {
+                logo: '⚡ POP! CANDY', navItem: 'Gen-Z Digital Experience Agency',
+                badge: '🍭 100% Hyper-Engaged Communities', title: 'Vibrant Interactions.<br>Viral Social Mechanics.',
+                desc: 'Bright pastel asset layers, interactive swipe structures, and instant engagement loops explicitly tuned for the next generation of online consumer habits.',
+                cta: 'Let\'s Collab!', icon1: '<i class="bi bi-emoji-smile"></i>', icon2: '<i class="bi bi-heart-fill"></i>',
+                fh1: '01 / Instant Viral Loops', fh2: '02 / TikTok Metric Tuning', fh3: '03 / Gamified Checkouts'
+            },
+            brutalist: {
+                logo: '✖ SWISS_BRUTAL', navItem: 'RAW_STRUCTURAL_SYSTEMS',
+                badge: '◼ ANTI-DECORATIVE DISCIPLINE', title: 'RAW TYPOGRAPHY.<br>STARK STRUCTURES.',
+                desc: 'Strip away the useless styling filters. Direct, loud information presentation paradigms utilizing pure Swiss typesetting and thick flat graphic strokes.',
+                cta: 'EXECUTE_DATA', icon1: '<i class="bi bi-arrow-down-right"></i>', icon2: '<i class="bi bi-fullscreen"></i>',
+                fh1: '01 / NO-FILTER CONTENT', fh2: '02 / MONOSPACED LOGIC RULES', fh3: '03 / HIGHEST ELEMENT CONTRAST'
+            },
+            industrial: {
+                logo: '⚙️ HEAVY IRON CO.', navItem: 'High-Tensile Precision Machining',
+                badge: '🛠️ Heavy Engineering Blueprint System', title: 'Forging Tough Hardware.<br>Built For Hard Environments.',
+                desc: 'Industrial control terminal systems and equipment configuration pipelines constructed explicitly to resist structural breakdown under extreme operations.',
+                cta: 'Download Spec Sheet', icon1: '<i class="bi bi-nut-fill"></i>', icon2: '<i class="bi bi-hammer"></i>',
+                fh1: '01 / High-Tensile Stress Limits', fh2: '02 / Automated Forge Paths', fh3: '03 / Hardened Corrosion Shielding'
+            }
         };
 
-        const appTemplates = {
-            basic: `
-                <div class="bg-light px-3 py-3 border-bottom d-flex justify-content-between align-items-center">
-                    <span class="fw-bold text-dark small"><i class="bi bi-phone-vibrate me-1 text-primary"></i> Hub Store App</span>
-                    <span class="badge bg-secondary-subtle text-secondary small" style="font-size:9px;">Directory Mode</span>
-                </div>
-                <div class="p-3">
-                    <div class="text-center py-4 bg-light rounded border border-dashed mb-3">
-                        <i class="bi bi-building-check text-muted fs-2"></i>
-                        <h6 class="fw-bold text-dark mt-2 mb-1">Permanent Mobile Pin</h6>
-                        <p class="text-muted px-2 mb-0" style="font-size:11px;">This build launches directly onto customer devices via app store shortcuts, focusing completely on keeping contact channels open.</p>
-                    </div>
-                    <div class="p-2 border rounded bg-white mb-2 small"><i class="bi bi-clock text-primary me-2"></i>Timings: 08:00 AM - 09:00 PM</div>
-                    <div class="p-2 border rounded bg-white mb-4 small"><i class="bi bi-shield-check text-success me-2"></i>SSL Security Shield Configured</div>
-                    <button class="btn btn-primary w-100 rounded-pill py-2 small fw-bold" onclick="alert('Simulation: Opens native cell network caller instantly!')"><i class="bi bi-telephone-fill me-2"></i>Call Merchant Node</button>
-                </div>
-            `,
-            payment: `
-                <div class="bg-light px-3 py-3 border-bottom d-flex justify-content-between align-items-center">
-                    <span class="fw-bold text-dark small"><i class="bi bi-phone-vibrate me-1 text-success"></i> Hub Checkout App</span>
-                    <span class="badge bg-success-subtle text-success small" style="font-size:9px;">E-Comm Active</span>
-                </div>
-                <div class="p-3">
-                    <div id="app-empty-state" class="text-center py-5 bg-light rounded border border-dashed text-muted small">
-                        <i class="bi bi-arrow-left-right fs-3 d-block mb-2 text-secondary"></i>
-                        Click on menu items inside the desktop browser layout to see instant cloud cross-platform sync capabilities.
-                    </div>
-                    <div id="app-active-state" class="d-none">
-                        <div class="p-3 border border-success rounded bg-success-subtle mb-3 text-center">
-                            <span class="small fw-bold text-success"><i class="bi bi-cloud-check-fill me-1"></i>Omnichannel Basket Synced</span>
-                        </div>
-                        <div class="p-3 border rounded bg-light mb-4">
-                            <div class="d-flex justify-content-between align-items-center small mb-2">
-                                <span class="text-muted">App Subtotal:</span>
-                                <strong id="app-sum-subtotal" class="text-dark">₹0</strong>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center small">
-                                <span class="text-muted">Delivery Charges:</span>
-                                <strong class="text-success">FREE</strong>
-                            </div>
-                        </div>
-                        <button class="btn btn-success w-100 rounded-pill py-2 small fw-bold" onclick="executeSimulatedCheckout()">Pay via Mobile Wallet</button>
-                    </div>
-                </div>
-            `
-        };
+        // Core Morph Controller Script Engine
+        function runMorphEngine(themeKey) {
+            // Attribute Flag Injection for instant variable compilation
+            document.documentElement.setAttribute('data-theme', themeKey);
 
-        function executePipelineSwitch(profileKey) {
-            document.querySelectorAll('.mode-pill').forEach(el => el.classList.remove('active'));
-            document.querySelector(`.mode-pill[data-target="${profileKey}"]`).classList.add('active');
+            // Update user control menu state classes
+            document.querySelectorAll('.theme-select-row').forEach(row => row.classList.remove('active'));
+            document.getElementById(`t-${themeKey}`).classList.add('active');
 
-            const webUrl = document.getElementById('web-address-url');
-            const webBadge = document.getElementById('web-badge');
-
-            if (profileKey === 'basic') {
-                webUrl.innerText = "https://www.thegroceryhub.in (Informative Local Brochure)";
-                webBadge.innerText = "Brochure Active";
-                webBadge.className = "badge bg-light text-primary border small";
-            } else {
-                webUrl.innerText = "https://checkout.thegroceryhub.in (Integrated Payment Rails)";
-                webBadge.innerText = "E-Commerce Active";
-                webBadge.className = "badge bg-success-subtle text-success border border-success small";
-            }
-
-            document.getElementById('web-canvas-viewport').innerHTML = webTemplates[profileKey];
-            document.getElementById('app-canvas-viewport').innerHTML = appTemplates[profileKey];
-            orderPayload = { apples: 0, oranges: 0 };
+            // Render text string swaps across nodes
+            const copy = copyDictionary[themeKey];
+            document.getElementById('site-logo').innerHTML = copy.logo;
+            document.getElementById('site-navitem').innerText = copy.navItem;
+            document.getElementById('site-badge').innerHTML = copy.badge;
+            document.getElementById('site-title').innerHTML = copy.title;
+            document.getElementById('site-desc').innerHTML = copy.desc;
+            document.getElementById('site-cta').innerText = copy.cta;
+            document.getElementById('site-icon1').innerHTML = copy.icon1;
+            document.getElementById('site-icon2').innerHTML = copy.icon2;
+            document.getElementById('feat-h1').innerText = copy.fh1;
+            document.getElementById('feat-h2').innerText = copy.fh2;
+            document.getElementById('feat-h3').innerText = copy.fh3;
         }
-
-        function registerItemToEngine(itemKey) {
-            orderPayload[itemKey]++;
-            refreshDynamicDOMStates();
-        }
-
-        function refreshDynamicDOMStates() {
-            const netAmount = (orderPayload.apples * priceMap.apples) + (orderPayload.oranges * priceMap.oranges);
-            
-            // Web State Target Conversions
-            const webSummary = document.getElementById('web-cart-breakdown');
-            const webFooter = document.getElementById('web-cart-footer');
-            const webTotal = document.getElementById('web-total-price');
-
-            // App State Target Conversions
-            const appEmpty = document.getElementById('app-empty-state');
-            const appActive = document.getElementById('app-active-state');
-            const appTotal = document.getElementById('app-sum-subtotal');
-
-            if (netAmount === 0) {
-                webSummary.className = "text-muted small py-4 text-center";
-                webSummary.innerText = "Your shopping bag is completely empty.";
-                webFooter.classList.add('d-none');
-
-                appEmpty.classList.remove('d-none');
-                appActive.classList.add('d-none');
-                return;
-            }
-
-            // Populate Web Panel Listing Details
-            webSummary.className = "small text-dark";
-            let collectionHTML = "";
-            if (orderPayload.apples > 0) {
-                collectionHTML += `<div class="d-flex justify-content-between mb-2"><span>🍎 Shimla Apples (x${orderPayload.apples})</span><span class="fw-semibold">₹${orderPayload.apples * priceMap.apples}</span></div>`;
-            }
-            if (orderPayload.oranges > 0) {
-                collectionHTML += `<div class="d-flex justify-content-between mb-2"><span>🍊 Sweet Oranges (x${orderPayload.oranges})</span><span class="fw-semibold">₹${orderPayload.oranges * priceMap.oranges}</span></div>`;
-            }
-            webSummary.innerHTML = collectionHTML;
-            webTotal.innerText = `₹${netAmount}`;
-            webFooter.classList.remove('d-none');
-
-            // Sync Mobile Screen Layout Concurrently
-            appEmpty.classList.add('d-none');
-            appActive.classList.remove('d-none');
-            appTotal.innerText = `₹${netAmount}`;
-        }
-
-        function executeSimulatedCheckout() {
-            const netAmount = (orderPayload.apples * priceMap.apples) + (orderPayload.oranges * priceMap.oranges);
-            alert(`[FLY HIGH PAYMENT INTEGRATION SIMULATION]\n\n1. Payment Gateway Handshake established successfully.\n2. Captured Balance: ₹${netAmount}\n3. Action: System fires server webhooks to dispatch automated user receipts and merchant fulfillment notifications seamlessly.`);
-            executePipelineSwitch('payment');
-        }
-
-        // Initialize Core Baseline Framework State Routine on Startup Event
-        document.addEventListener('DOMContentLoaded', () => {
-            executePipelineSwitch('basic');
-        });
     </script>
 </body>
 </html>
