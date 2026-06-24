@@ -19,7 +19,7 @@
 
     <style>
         /* ==========================================================================
-           12-THEME CASCADE SYSTEM MATRIX (Tokens rewrite instantly on data-theme switch)
+           12-THEME CASCADE SYSTEM MATRIX
            ========================================================================== */
         
         /* THEME 1: FRESH ORGANIC MARKET (DEFAULT) */
@@ -139,7 +139,7 @@
             letter-spacing: -0.03em;
         }
         
-        /* Persistent Floating Sidebar Panel Setup */
+        /* Floating / Desktop Sidebar Panel */
         .sidebar-control-dock {
             position: fixed;
             top: 0; right: 0;
@@ -147,9 +147,10 @@
             background: #ffffff;
             border-left: 1px solid #e2e8f0;
             box-shadow: -10px 0 40px rgba(0,0,0,0.05);
-            z-index: 1050;
+            z-index: 1060;
             padding: 24px;
             overflow-y: auto;
+            transition: transform 0.3s ease-in-out;
         }
         .theme-select-row {
             display: flex; align-items: center; gap: 12px;
@@ -164,7 +165,7 @@
             background: #0f172a; color: #ffffff; border-color: #0f172a;
         }
 
-        /* Core Elements Linked to Custom CSS Variables */
+        /* Elements Responsive Design Link Engine */
         .custom-navbar {
             border-bottom: var(--border-style); background-color: var(--bg-card);
         }
@@ -175,7 +176,7 @@
         }
         .custom-btn {
             background-color: var(--primary); color: #ffffff !important;
-            font-weight: 700; padding: 14px 32px; border-radius: var(--border-radius);
+            font-weight: 700; padding: 12px 28px; border-radius: var(--border-radius);
             border: none; display: inline-block; text-decoration: none;
             box-shadow: var(--shadow-depth); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em;
         }
@@ -191,7 +192,34 @@
             display: inline-block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;
         }
         
-        /* Themed Corporate Footer Rules */
+        /* Themed Mobile-Ready Nav Links */
+        .nav-link {
+            color: var(--text-body) !important;
+            font-weight: 600;
+        }
+        .nav-link:hover {
+            color: var(--primary) !important;
+        }
+        
+        /* Mobile System Back Button Header Element */
+        .mobile-back-banner {
+            background: #0f172a;
+            color: #ffffff;
+            padding: 10px 16px;
+            font-size: 0.85rem;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1070;
+        }
+        .mobile-back-banner a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
         .themed-footer {
             margin-top: auto;
             background-color: var(--bg-card);
@@ -201,23 +229,43 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive spacing offset for floating matrix panel */
+        /* Responsive Layout Matrix Rules */
         @media (min-width: 1200px) {
             .workspace-wrap { padding-right: 340px; }
+        }
+        @media (max-width: 1199px) {
+            .sidebar-control-dock {
+                transform: translateX(100%);
+            }
+            .sidebar-control-dock.open {
+                transform: translateX(0);
+            }
+            .mobile-back-banner {
+                display: d-flex;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- MOBILE SYSTEM SHORTCUT NAVIGATION BANNER -->
+    <div class="mobile-back-banner d-xl-none" id="mobileBackBanner">
+        <span>Active Sandbox Mode</span>
+        <a href="javascript:void(0)" onclick="toggleControlDock()"><i class="bi bi-arrow-left-short"></i> Open Theme Selector</a>
+    </div>
+
     <!-- FLOATING SIDEBAR PANEL MATRIX (CONTROL ACCESS PANEL) -->
-    <div class="sidebar-control-dock">
-        <div class="d-flex align-items-center gap-2 mb-2 pb-3 border-bottom">
-            <!-- FlyHighLocal Brand Logo Asset Configuration -->
-            <img src="Logo.jpg" alt="FlyHighLocal Logo" style="height:24px; width:auto; object-fit:contain; border-radius:4px;">
-            <span class="fw-bold text-dark small">FlyHighLocal Engine</span>
+    <div class="sidebar-control-dock" id="controlDock">
+        <div class="d-flex align-items-center justify-content-between mb-2 pb-3 border-bottom">
+            <div class="d-flex align-items-center gap-2">
+                <img src="Logo.jpg" alt="FlyHighLocal Logo" href="/index.html" style="height:24px; width:auto; object-fit:contain; border-radius:4px;">
+                <span class="fw-bold text-dark small">FlyHighLocal Engine</span>
+            </div>
+            <!-- Dynamic Mobile Close trigger option -->
+            <button class="btn btn-sm btn-dark d-xl-none" onclick="toggleControlDock()">Hide ←</button>
         </div>
         <p class="text-muted mb-4" style="font-size: 0.72rem; line-height: 1.4;">
-            Select from the 12 standalone configurations below to instantly re-render the typography scales, border metrics, depths, and styling values.
+            Select from the 12 standalone configurations below to instantly re-render the typography scales, responsive menu elements, and color rules.
         </p>
 
         <!-- Dynamic Select Trigger Matrix Buttons -->
@@ -262,15 +310,33 @@
     <!-- MAIN INTERACTIVE DEMO SITE SPACE CONTAINER -->
     <div class="workspace-wrap d-flex flex-column min-vh-100">
         
-        <!-- SITE CORE HEADER -->
-        <nav class="navbar custom-navbar sticky-top py-3">
-            <div class="container-fluid px-md-5 d-flex justify-content-between align-items-center">
-                <span class="fs-4 fw-bold brand-font" id="site-logo">
+        <!-- SITE CORE HEADER NAV BAR WITH FULL MOBILE HAMBURGER TOGGLE -->
+        <nav class="navbar navbar-expand-xl custom-navbar sticky-top py-3">
+            <div class="container-fluid px-md-5">
+                <span class="navbar-brand fs-4 fw-bold brand-font" id="site-logo">
                     <i class="bi bi-basket3-fill me-2"></i>The Grocery Hub
                 </span>
-                <div class="d-flex align-items-center gap-4">
-                    <span class="small d-none d-lg-inline text-muted fw-bold" id="site-navitem">Fresh Provisions Marketplace</span>
-                    <a href="#" class="custom-btn py-2 px-4" style="font-size: 0.75rem;">Launch Console</a>
+                
+                <!-- Back Button & Menu Trigger Wrapper for Tablet/Mobile viewport rendering -->
+                <div class="d-flex align-items-center gap-2">
+                    <button class="btn btn-outline-secondary d-xl-none" style="font-size: 0.85rem;" onclick="toggleControlDock()">
+                        <i class="bi bi-sliders2-vertical"></i> Control Panel
+                    </button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#responsiveSiteMenu" style="border-color: var(--border-style);">
+                        <i class="bi bi-list" style="color: var(--text-heading); font-size: 1.5rem;"></i>
+                    </button>
+                </div>
+
+                <!-- Collapsible Responsive Content Container Menu Layer -->
+                <div class="collapse navbar-collapse" id="responsiveSiteMenu">
+                    <ul class="navbar-nav mx-auto mb-3 mb-xl-0 gap-2 gap-xl-4 pt-3 pt-xl-0">
+                        <li class="nav-item"><a class="nav-link active" href="#" id="site-navitem-1">Fresh Provisions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" id="site-navitem-2">Our Farms</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" id="site-navitem-3">Bulk Pipeline</a></li>
+                    </ul>
+                    <div class="pt-2 pt-xl-0">
+                        <a href="#" class="custom-btn w-100 text-center py-2 px-4" style="font-size: 0.75rem;">Launch App Workspace</a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -287,7 +353,7 @@
                         <p class="lead mb-5" id="site-desc" style="max-width:540px; font-size: 1.05rem; line-height: 1.6;">
                             Skip the supermarket lines. Get premium organic items harvested this morning delivered right to your doorstep within 30 minutes flat.
                         </p>
-                        <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex flex-wrap align-items-center gap-3">
                             <a href="#" class="custom-btn" id="site-cta">Initiate Processing</a>
                             <a href="#" class="btn border-0 fw-bold small d-flex align-items-center gap-2" style="color: var(--text-heading);">
                                 Review Analytics <i class="bi bi-arrow-right-short fs-5"></i>
@@ -358,94 +424,102 @@
         </footer>
     </div>
 
+    <!-- BOOTSTRAP JS COMPILED RUNTIME ENGINE Bundle containing Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- DATA COPY DICTIONARY SCHEMAS MATRIX -->
     <script>
         const copyDictionary = {
             organic: {
-                logo: '<i class="bi bi-basket3-fill me-2"></i>The Grocery Hub', navItem: 'Fresh Provisions Marketplace',
+                logo: '<i class="bi bi-basket3-fill me-2"></i>The Grocery Hub', nav1: 'Fresh Provisions', nav2: 'Our Farms', nav3: 'Bulk Pipeline',
                 badge: '🌿 100% Certified Organic Matrix', title: 'Fresh Farm Greens <br>Delivered Daily.',
                 desc: 'Skip the supermarket lines. Get premium organic items harvested this morning delivered right to your doorstep within 30 minutes flat.',
                 cta: 'Start Order', icon1: '<i class="bi bi-truck"></i>', icon2: '<i class="bi bi-shield-check"></i>',
                 fh1: '01 / Hyper-Local Sourcing', fh2: '02 / Thermal Tracking', fh3: '03 / Zero-Plastic Packs'
             },
             luxury: {
-                logo: '[ URBAN THREADS ]', navItem: 'Winter Couture Runway Drop',
+                logo: '[ URBAN THREADS ]', nav1: 'Winter Runway Drop', nav2: 'The Atelier', nav3: 'Private Vault',
                 badge: '✨ Premium Made-To-Order Run', title: 'Minimalist Balance.<br>Luxury Fabric Form.',
                 desc: 'Heavyweight premium loopback luxury pieces cut to exact technical specifications. Hand-numbered essentials engineered to endure seasonal generational shifts.',
                 cta: 'Enter Private Drop', icon1: '<i class="bi bi-scissors"></i>', icon2: '<i class="bi bi-gem"></i>',
                 fh1: '01 / Tailored Balance', fh2: '02 / Monochromatic Ethos', fh3: '03 / Handcrafted Iterations'
             },
             tech: {
-                logo: '<i class="bi bi-lightning-charge-fill text-warning me-1"></i>pixelperfect.', navItem: 'Core Engine Enterprise APIs',
+                logo: '<i class="bi bi-lightning-charge-fill text-warning me-1"></i>pixelperfect.', nav1: 'Enterprise APIs', nav2: 'Edge Cloud', nav3: 'Documentation',
                 badge: '⚡ Blazing Fast NextGen Stack Node', title: 'We Architect Hyper-Growth <br>Digital Infrastructure.',
                 desc: 'Next-generation low-latency development structures and high-performance layout pipelines optimized explicitly to scale consumer traffic streams.',
                 cta: 'Deploy Active Workspace', icon1: '<i class="bi bi-cpu-fill"></i>', icon2: '<i class="bi bi-terminal-fill"></i>',
                 fh1: '01 / Edge Compute Engine', fh2: '02 / Autonomous Systems', fh3: '03 / Zero Latency Nodes'
             },
             retro: {
-                logo: '🕹️ RETRO_ARCADE', navItem: 'INSERT_COIN_STAGE_01',
+                logo: '🕹️ RETRO_ARCADE', nav1: 'STAGE_01_MAP', nav2: 'LEADERBOARDS', nav3: 'COIN_SHOP',
                 badge: '👾 STAGE 1 READY PLAYER ONE', title: '8-BIT VIBES.<br>NEON RETROFUTURE.',
                 desc: 'Reset the simulation. Classic high-fidelity arcade aesthetic packages compiled natively using vibrant synthwave structural visual systems.',
                 cta: 'START GAME', icon1: '<i class="bi bi-joystick"></i>', icon2: '<i class="bi bi-controller"></i>',
                 fh1: '01 / 60 FPS RENDERING', fh2: '02 / CHIPTUNE EMULATION', fh3: '03 / CHROME MATRIX DRIVERS'
             },
             nordic: {
-                logo: '🌿 NORDIC SAGE', navItem: 'Architectural Functional Design',
+                logo: '🌿 NORDIC SAGE', nav1: 'Lookbook Spaces', nav2: 'Material Sourcing', nav3: 'Studio Story',
                 badge: '🪨 Minimalist Spatial Balance', title: 'Quiet Luxury. <br>Functional Spaces.',
                 desc: 'Sustainably crafted interiors and industrial hardware archetypes utilizing natural pigments, honest materials, and soft muted earth tones.',
                 cta: 'View Collection', icon1: '<i class="bi bi-compass"></i>', icon2: '<i class="bi bi-tree"></i>',
                 fh1: '01 / Honest Materials', fh2: '02 / Natural Pigments', fh3: '03 / Circular Craft'
             },
             solar: {
-                logo: '🔥 SOLAR FLARE', navItem: 'High-Impact Brand Velocity',
+                logo: '🔥 SOLAR FLARE', nav1: 'Growth Blueprints', nav2: 'Funnel Optimization', nav3: 'Case Vault',
                 badge: '💥 High Velocity Growth Asset', title: 'Ignite Brand Presence.<br>Command Market Waves.',
                 desc: 'Bold typography, unapologetic color palettes, and intense energetic messaging designed to break through consumer fatigue instantly.',
                 cta: 'Claim Blueprint', icon1: '<i class="bi bi-fire"></i>', icon2: '<i class="bi bi-lightning"></i>',
                 fh1: '01 / Raw Conversion Scale', fh2: '02 / Explosive Funnels', fh3: '03 / Market Dominance'
             },
             oceanic: {
-                logo: '🌊 OCEANIC SLATE', navItem: 'Maritime Asset Logistics',
+                logo: '🌊 OCEANIC SLATE', nav1: 'Telemetry Hub', nav2: 'Cargo Manifests', nav3: 'Global Routes',
                 badge: '⚓ Deep Sea Capital Infrastructure', title: 'Global Maritime Trade.<br>Streamlined Supply Nodes.',
                 desc: 'Intercontinental enterprise container tracking networks and deep-sea freight monitoring applications configured for zero delivery drift parameters.',
                 cta: 'Track Cargo Nodes', icon1: '<i class="bi bi-tsunami"></i>', icon2: '<i class="bi bi-anchor"></i>',
                 fh1: '01 / Real-Time Marine Telemetry', fh2: '02 / Port Route Optimization', fh3: '03 / Heavy Cargo Security'
             },
             royal: {
-                logo: '⚜️ VELVET REIGN', navItem: 'Elite Haute Horology',
+                logo: '⚜️ VELVET REIGN', nav1: 'The Chronographs', nav2: 'Private Commissions', nav3: 'Our Heritage',
                 badge: '👑 Limited Imperial Masterpieces', title: 'Royal Inheritance.<br>Timeless Chronographs.',
                 desc: 'Impeccable gold complications and micro-engineered luxury timepieces created exclusively for family generation distributions.',
                 cta: 'Request Private Viewing', icon1: '<i class="bi bi-hourglass-split"></i>', icon2: '<i class="bi bi-crown"></i>',
                 fh1: '01 / Micro-Engineered Gears', fh2: '02 / Bespoke Precious Alloys', fh3: '03 / Hand-Assembled Calibers'
             },
             editorial: {
-                logo: '✒️ THE CHRONICLE', navItem: 'Independent Analytical Journalism',
+                logo: '✒️ THE CHRONICLE', nav1: 'Investigative Daily', nav2: 'Geopolitical Archive', nav3: 'Essays',
                 badge: '🗞️ Issue No. 142 Longform Prints', title: 'Uncompromising Truths.<br>Deep Editorial Context.',
                 desc: 'High-contrast monochrome print layouts engineered to elevate global investigative prose, geopolitical analysis, and societal critique.',
                 cta: 'Subscribe To Daily Print', icon1: '<i class="bi bi-newspaper"></i>', icon2: '<i class="bi bi-pen"></i>',
                 fh1: '01 / Fact-Checked Journalism', fh2: '02 / Ad-Free Editorial Model', fh3: '03 / Archival Quality Paper'
             },
             bubblegum: {
-                logo: '⚡ POP! CANDY', navItem: 'Gen-Z Digital Experience Agency',
+                logo: '⚡ POP! CANDY', nav1: 'Creator Network', nav2: 'Drop Schedule', nav3: 'Brand Jam',
                 badge: '🍭 100% Hyper-Engaged Communities', title: 'Vibrant Interactions.<br>Viral Social Mechanics.',
                 desc: 'Bright pastel asset layers, interactive swipe structures, and instant engagement loops explicitly tuned for the next generation of online consumer habits.',
                 cta: 'Let\'s Collab!', icon1: '<i class="bi bi-emoji-smile"></i>', icon2: '<i class="bi bi-heart-fill"></i>',
                 fh1: '01 / Instant Viral Loops', fh2: '02 / TikTok Metric Tuning', fh3: '03 / Gamified Checkouts'
             },
             brutalist: {
-                logo: '✖ SWISS_BRUTAL', navItem: 'RAW_STRUCTURAL_SYSTEMS',
+                logo: '✖ SWISS_BRUTAL', nav1: 'SYSTEM_SPECS', nav2: 'NODE_LOGS', nav3: 'TERMINAL_IO',
                 badge: '◼ ANTI-DECORATIVE DISCIPLINE', title: 'RAW TYPOGRAPHY.<br>STARK STRUCTURES.',
                 desc: 'Strip away the useless styling filters. Direct, loud information presentation paradigms utilizing pure Swiss typesetting and thick flat graphic strokes.',
                 cta: 'EXECUTE_DATA', icon1: '<i class="bi bi-arrow-down-right"></i>', icon2: '<i class="bi bi-fullscreen"></i>',
                 fh1: '01 / NO-FILTER CONTENT', fh2: '02 / MONOSPACED LOGIC RULES', fh3: '03 / HIGHEST ELEMENT CONTRAST'
             },
             industrial: {
-                logo: '⚙️ HEAVY IRON CO.', navItem: 'High-Tensile Precision Machining',
+                logo: '⚙️ HEAVY IRON CO.', nav1: 'Hardware Inventory', nav2: 'Stress Analyses', nav3: 'Custom Forging',
                 badge: '🛠️ Heavy Engineering Blueprint System', title: 'Forging Tough Hardware.<br>Built For Hard Environments.',
                 desc: 'Industrial control terminal systems and equipment configuration pipelines constructed explicitly to resist structural breakdown under extreme operations.',
                 cta: 'Download Spec Sheet', icon1: '<i class="bi bi-nut-fill"></i>', icon2: '<i class="bi bi-hammer"></i>',
                 fh1: '01 / High-Tensile Stress Limits', fh2: '02 / Automated Forge Paths', fh3: '03 / Hardened Corrosion Shielding'
             }
         };
+
+        // Mobile Interface Dock State Controller Toggle Function
+        function toggleControlDock() {
+            document.getElementById('controlDock').classList.toggle('open');
+        }
 
         // Core Morph Controller Script Engine
         function runMorphEngine(themeKey) {
@@ -459,7 +533,9 @@
             // Render text string swaps across nodes
             const copy = copyDictionary[themeKey];
             document.getElementById('site-logo').innerHTML = copy.logo;
-            document.getElementById('site-navitem').innerText = copy.navItem;
+            document.getElementById('site-navitem-1').innerText = copy.nav1;
+            document.getElementById('site-navitem-2').innerText = copy.nav2;
+            document.getElementById('site-navitem-3').innerText = copy.nav3;
             document.getElementById('site-badge').innerHTML = copy.badge;
             document.getElementById('site-title').innerHTML = copy.title;
             document.getElementById('site-desc').innerHTML = copy.desc;
@@ -469,6 +545,11 @@
             document.getElementById('feat-h1').innerText = copy.fh1;
             document.getElementById('feat-h2').innerText = copy.fh2;
             document.getElementById('feat-h3').innerText = copy.fh3;
+
+            // Smooth close drawer action explicitly on mobile device selection events
+            if (window.innerWidth < 1200) {
+                toggleControlDock();
+            }
         }
     </script>
 </body>
